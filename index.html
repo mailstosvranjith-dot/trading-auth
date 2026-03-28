@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
-<script>
-  var params = window.location.search;
-  window.location.replace("tradingapp://auth" + params);
-</script>
-<body>Redirecting back to Trading Tool...</body>
+<head>
+  <title>Trading App Auth</title>
+  <script>
+    // Read the code Upstox appended: ?code=ABC123&state=trading_app
+    var params = window.location.search;
+    var codeMatch = params.match(/[?&]code=([^&]+)/);
+    if (codeMatch) {
+      // Redirect into the app — openAuthSessionAsync detects tradingapp:// and closes
+      window.location.href = "tradingapp://auth" + params;
+    } else {
+      document.write("No code received.");
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting back to Trading App...</p>
+</body>
 </html>
