@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <script>
-  var params = window.location.search;
-  window.location.replace("tradingapp://auth" + params);
+  // Pass the auth code back via the same HTTPS URL so the app browser session catches it
+  var currentUrl = window.location.href;
+  // The app is listening for this URL pattern to close the browser
+  document.write("Login successful! You can close this window and return to the app.");
 </script>
-<body>Redirecting back to Trading Tool...</body>
+<body>
+  <h2>Login Successful</h2>
+  <p>Return to the Trading Tool app.</p>
+</body>
 </html>
